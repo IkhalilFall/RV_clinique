@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:@localhost:3306/clinique_db"
+}
+
+enum Role {
+  PATIENT
+  MEDECIN
+}
+
+enum StatutRDV {
+  EN_ATTENTE
+  CONFIRME
+  ANNULE
+}
+
+model User {
+  id                    Int       @id @default(autoincrement())
+  nom                   String
+  prenom                String
+  email                 String    @unique
+  mdp                   String
+  role                  Role
+  lieuNaissance         String?
+  dateNaissance         DateTime?
+  situationMatrimoniale String?
+  genre                 String?
+  adresse               String?
+  createdAt             DateTime  @default(now())
+
+  rdvPatient     RDV[]           @relation("PatientRDV")
+  disponibilites Disponibilite[]
+  rdvMedecin     RDV[]           @relation("MedecinRDV")
+}
+
+model Disponibilite {
+  id         Int      @id @default(autoincrement())
+  medecinId  Int
+  medecin    User     @relation(fields: [medecinId], references: [id], onDelete: Cascade)
+  date       DateTime
+  heureDebut String
+  heureFin   String
+  disponible Boolean  @default(true)
+  createdAt  DateTime @default(now())
+}
+
+model RDV {
+  id              Int       @id @default(autoincrement())
+  patientId       Int
+  patient         User      @relation("PatientRDV", fields: [patientId], references: [id], onDelete: Cascade)
+  medecinId       Int
+  medecin         User      @relation("MedecinRDV", fields: [medecinId], references: [id], onDelete: Cascade)
+  disponibiliteId Int
+  date            DateTime
+  heure           String
+  statut          StatutRDV @default(EN_ATTENTE)
+  paiement        Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+}

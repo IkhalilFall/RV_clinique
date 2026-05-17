@@ -1,0 +1,527 @@
+.dashboardPage {
+  display: flex;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  background: #f1f5f9;
+}
+
+.notification {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.success {
+  background: #065f46;
+}
+
+.error {
+  background: #dc2626;
+}
+
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #064e3b 0%, #065f46 100%);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 10;
+}
+
+.sidebarHeader {
+  padding: 28px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandCircle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandTitle {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.brandSubtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  margin: 0;
+}
+
+.sidebarNav {
+  flex: 1;
+  padding: 16px 12px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.65);
+  border: 1px solid transparent;
+}
+
+.menuItemActive {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.menuItemIcon {
+  font-size: 18px;
+}
+
+.menuItemLabel {
+  font-size: 14px;
+}
+
+.menuBadge {
+  margin-left: auto;
+  background: #ef4444;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 11px;
+  padding: 2px 7px;
+  font-weight: 600;
+}
+
+.logoutSection {
+  padding: 16px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  border: none;
+}
+
+.content {
+  margin-left: 240px;
+  flex: 1;
+  padding: 32px;
+}
+
+.pageHeader {
+  margin-bottom: 32px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #064e3b;
+  margin-bottom: 4px;
+}
+
+.pageSubtitle {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.summaryCard {
+  border-radius: 14px;
+  padding: 20px 24px;
+}
+
+.summaryCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.summaryCardIcon {
+  font-size: 24px;
+}
+
+.summaryCardValue {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.summaryCardLabel {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+.summaryCardOrange {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+}
+
+.summaryCardGreen {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.summaryCardBlue {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.summaryCardTextOrange {
+  color: #ea580c;
+}
+
+.summaryCardTextGreen {
+  color: #16a34a;
+}
+
+.summaryCardTextBlue {
+  color: #1a6fa8;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.cardAlt {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 24px;
+}
+
+.cardInfo {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.cardError {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.cardHeader {
+  font-size: 16px;
+  font-weight: 600;
+  color: #064e3b;
+  margin-bottom: 16px;
+}
+
+.cardHeaderLarge {
+  font-size: 16px;
+  font-weight: 600;
+  color: #064e3b;
+  margin-bottom: 20px;
+}
+
+.cardCountGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 24px 0;
+  color: #94a3b8;
+}
+
+.emptyStateBig {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.listContainer {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  padding: 14px 16px;
+}
+
+.listItemWarning {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+}
+
+.listItemPrimary {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.listItemRow {
+  display: flex;
+  gap: 8px;
+}
+
+.listItemActionGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.buttonBase {
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonPrimary {
+  background: #065f46;
+  color: #fff;
+  padding: 12px 14px;
+}
+
+.buttonPrimaryDisabled {
+  background: #6ee7b7;
+  cursor: not-allowed;
+}
+
+.buttonSecondary {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 8px 14px;
+  border: 1px solid #fecaca;
+}
+
+.buttonOutline {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  color: #64748b;
+  padding: 12px;
+}
+
+.buttonAction {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.buttonActionConfirm {
+  background: #065f46;
+  color: #fff;
+}
+
+.buttonActionCancel {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.buttonActionSmall {
+  padding: 7px 12px;
+  font-size: 12px;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formGrid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.formInput,
+.formSelect {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.formSelect {
+  cursor: pointer;
+}
+
+.formInput::placeholder {
+  color: #94a3b8;
+}
+
+.formActions {
+  display: flex;
+  gap: 10px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.profileAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #d1fae5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.profileStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.profileStatCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.profileStatLabel {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0 0 4px;
+}
+
+.profileStatValue {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+  margin: 0;
+}
+
+.statusBadge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.statusConfirmed {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+}
+
+.statusCancelled {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.statusPending {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #ea580c;
+}
+
+.availabilityBadge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.availabilityLibre {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+}
+
+.availabilityReserve {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.patientCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.patientAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
