@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Medicare — prise de rendez-vous médicaux
 
-## Getting Started
+Application web qui permet à des patients de réserver un rendez-vous avec un médecin, et aux médecins de gérer leurs disponibilités et leurs rendez-vous.
 
-First, run the development server:
+## Fonctionnalités
+
+- Inscription et connexion avec deux rôles : **patient** et **médecin** (mots de passe hachés avec bcrypt)
+- **Espace médecin** : publication et suppression de créneaux de disponibilité, confirmation ou annulation des rendez-vous
+- **Espace patient** : liste des médecins, réservation d’un créneau, suivi du statut du rendez-vous (en attente, confirmé, annulé)
+- **Paiement** : suivi du paiement des rendez-vous confirmés
+- Gestion du profil utilisateur
+
+## Technologies
+
+- Next.js 16 (App Router) et React 19
+- Tailwind CSS 4
+- Prisma ORM et MySQL
+- TypeScript
+
+## API
+
+| Méthode | Route | Rôle |
+|---|---|---|
+| POST | `/api/auth/register` | Créer un compte |
+| POST | `/api/auth/login` | Se connecter |
+| GET, PATCH | `/api/profil` | Consulter et modifier son profil |
+| GET | `/api/medecins` | Lister les médecins |
+| GET, POST, DELETE | `/api/disponibilites` | Gérer les créneaux |
+| GET, POST | `/api/rdv` | Lister et réserver des rendez-vous |
+| PATCH | `/api/rdv/[id]` | Confirmer ou annuler un rendez-vous |
+| PATCH | `/api/paiement` | Enregistrer un paiement |
+
+## Modèle de données
+
+`User` (rôle `PATIENT` ou `MEDECIN`), `Disponibilite` et `RDV` (statut `EN_ATTENTE`, `CONFIRME` ou `ANNULE`, paiement). Le schéma est dans `prisma/schema.prisma`.
+
+## Lancer le projet
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/IkhalilFall/RV_clinique.git
+cd RV_clinique
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Modifie l’adresse de ta base MySQL dans `prisma/schema.prisma` (ou passe-la en variable d’environnement `DATABASE_URL`), puis :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npx prisma migrate dev
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+L’application est disponible sur http://localhost:3000.
 
-## Learn More
+## Auteur
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ibrahima Khalil Fall — [GitHub](https://github.com/IkhalilFall)
